@@ -45,3 +45,12 @@ re-run the thing.
 php bin/console server:run
 
 run bin/ commands from project root 
+
+
+
+sudo apt-get install mysql-server
+sudo mysql_secure_installation
+https://www.digitalocean.com/community/tutorials/how-to-create-a-new-user-and-grant-permissions-in-mysql
+CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON * . * TO 'newuser'@'localhost';
+FLUSH PRIVILEGES;
