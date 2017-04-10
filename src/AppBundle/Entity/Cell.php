@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cell extends Model
 {
- /**
+    /**
      * Indicates if the model should be timestamped.
      *
      * @var bool
