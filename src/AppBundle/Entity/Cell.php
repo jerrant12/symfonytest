@@ -2,7 +2,8 @@
 
 namespace AppBundle\Entity;
 use Illuminate\Database\Eloquent\Model;
-include 'database.php';
+//include '../database.php';
+
 class Cell extends Model
 {
  /**

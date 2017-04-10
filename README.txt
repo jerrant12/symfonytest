@@ -32,3 +32,16 @@ composer update
 and database.php needed to be included
 and the require line was commented out.
 Question? Where can I put this file so it can be referenced anywhere? 
+ 
+I ended up using the full path.  I don't like that.  Maybe @AppBundle? 
+
+UPDATING ROUTING....
+
+
+php bin/console cache:clear
+then 
+re-run the thing.
+
+php bin/console server:run
+
+run bin/ commands from project root 

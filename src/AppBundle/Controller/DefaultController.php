@@ -12,7 +12,10 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Response;
 
-include 'database.php';
+include '/home/jmill/test/symfonytest/src/AppBundle/database.php';
+//include '../database.php';
+
+
 class DefaultController extends Controller
 {
     /**
