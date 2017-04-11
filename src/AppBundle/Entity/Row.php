@@ -1,10 +1,11 @@
 <?php
 
 namespace AppBundle\Entity;
+//use AppBundle\Entity\Cell;
 use Illuminate\Database\Eloquent\Model;
 //include '../database.php';
 
-class Cell extends Model
+class Row extends Model
 {
     /**
      * Indicates if the model should be timestamped.
@@ -13,8 +14,14 @@ class Cell extends Model
      */
     public $timestamps = false;
 
-    public function row()
+    public function cells()
     {
-        return $this->belongsTo('Entity\Row');
+        return $this->hasMany('AppBundle\Entity\Cell');
+    }
+
+    public function getCellsArray()
+    {
+        $cells =  $this->cells;
+        return $cells;
     }
 }
