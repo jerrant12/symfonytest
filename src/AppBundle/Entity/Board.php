@@ -1,11 +1,10 @@
 <?php
 
 namespace AppBundle\Entity;
-//use AppBundle\Entity\Cell;
 use Illuminate\Database\Eloquent\Model;
-//include '../database.php';
 
-class Row extends Model
+
+class Board extends Model
 {
     /**
      * Indicates if the model should be timestamped.
@@ -21,7 +20,7 @@ class Row extends Model
 
     public function getCellsArray()
     {
-        $cells =  $this->cells;
+        $cells =  $this->cells()->orderBy('y_coord','x_coord')->get();
         return $cells;
     }
 }

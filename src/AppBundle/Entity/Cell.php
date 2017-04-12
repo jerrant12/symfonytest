@@ -15,6 +15,6 @@ class Cell extends Model
 
     public function row()
     {
-        return $this->belongsTo('Entity\Row');
+        return $this->belongsTo('Entity\Board');
     }
 }

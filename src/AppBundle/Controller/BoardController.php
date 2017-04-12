@@ -3,8 +3,8 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Cell;
-use AppBundle\Entity\Row;
-use AppBundle\Form\Type\RowType;
+use AppBundle\Entity\Board;
+use AppBundle\Form\Type\BoardType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,43 +15,43 @@ use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
 include '/home/jmill/test/symfonytest/src/AppBundle/database.php';
 
-class RowController extends Controller
+class BoardController extends Controller
 {
     /**
-     * @Route("/row")
+     * @Route("/board")
      */
 
      public function newAction(Request $request)
      {
-         $row = Row::find(1);
-//         echo $row;
-//         echo $row->cells;
+         $board = Board::find(1);
+        // echo $board;
+        // echo $board->cells;
 
-         $form = $this->createForm(RowType::class, $row);
+         $form = $this->createForm(BoardType::class, $board);
 
          $form->handleRequest($request);
 
           if ($form->isSubmitted() && $form->isValid()) {
-          echo $row->cells;
-          $row->save();
-          foreach ($row->cells as $cell)
+
+          $board->save();
+          foreach ($board->cells as $cell)
             $cell->save();
 
-          return $this->redirectToRoute('row_update_success');
+          return $this->redirectToRoute('board_update_success');
     }
 
-    return $this->render('default/row_update.html.twig', array(
+    return $this->render('default/board_update.html.twig', array(
         'form' => $form->createView(),
     ));
 }
 
     /**
-     * @Route("/row_update_success", name="row_update_success")
+     * @Route("/board_update_success", name="board_update_success")
      */
     public function successAction(Request $request)
     {
        return new Response(
-            '<html><body>Yay! <a href="/row"> Row updated! </a> </body></html>'
+            '<html><body>Yay! <a href="/board"> Board updated! </a> </body></html>'
             );
 
     }
